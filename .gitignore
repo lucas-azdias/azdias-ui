@@ -1,0 +1,10 @@
+# Node.js & Build Artifacts
+**/node_modules/
+**/.turbo/
+*.tsbuildinfo
+
+# Tooling Files
+TODO*
+
+# OS Files
+.DS_Store

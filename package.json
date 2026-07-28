@@ -1,0 +1,54 @@
+{
+    "name": "@azdias/ui",
+    "description": "Common `azdias` UI components for web development based on `shadcn/ui`.",
+    "author": {
+        "name": "Lucas Dias",
+        "email": "lucas@azdias.com.br",
+        "url": "https://azdias.com.br"
+    },
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "lint": "tsc && eslint"
+    },
+    "devDependencies": {
+        "@azdias/config": "workspace:*",
+        "@eslint/js": "^10.0.1",
+        "@tailwindcss/vite": "^4.3.2",
+        "@types/node": "^26.1.1",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "eslint": "catalog:",
+        "globals": "^17.7.0",
+        "tailwindcss": "catalog:",
+        "typescript": "catalog:"
+    },
+    "dependencies": {
+        "@base-ui/react": "^1.6.0",
+        "@dnd-kit/helpers": "^0.5.0",
+        "@dnd-kit/react": "^0.5.0",
+        "@fontsource-variable/geist": "^5.2.9",
+        "@fontsource-variable/geist-mono": "^5.2.8",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "lucide-react": "^1.24.0",
+        "react": "catalog:",
+        "react-dom": "catalog:",
+        "react-resizable-panels": "^4.12.2",
+        "shadcn": "^4.13.0",
+        "tailwind-merge": "^3.6.0",
+        "tw-animate-css": "^1.4.0",
+        "uuid": "^14.0.1"
+    },
+    "exports": {
+        "./styles.tailwind.css": "./src/styles/styles.tailwind.css",
+        "./lib/*": "./src/lib/*",
+        "./components/*": "./src/components/*",
+        "./hooks/*": "./src/hooks/*",
+        "./constants/*": "./src/constants/*"
+    },
+    "keywords": [
+        "repository",
+        "ui"
+    ]
+}

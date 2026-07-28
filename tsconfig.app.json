@@ -1,0 +1,17 @@
+{
+    "extends": "../../packages/config/typescript/tsconfig.base.json",
+
+    "display": "Application TypeScript",
+
+    "compilerOptions": {
+        "lib": ["ES2024", "DOM", "DOM.Iterable"],
+
+        /* Linting */
+        "rootDir": "src",
+        "paths": {
+            "@azdias/ui/*": ["./src/*"],
+        },
+    },
+
+    "include": ["src"],
+}
