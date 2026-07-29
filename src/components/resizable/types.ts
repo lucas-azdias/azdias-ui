@@ -2,6 +2,8 @@ import { resizableHandleVariants } from "@azdias/ui/components/resizable/variant
 import { type VariantProps } from "class-variance-authority";
 import { type GroupProps, type PanelProps, type SeparatorProps } from "react-resizable-panels";
 
+export { type GroupImperativeHandle, type PanelImperativeHandle } from "react-resizable-panels";
+
 export type ResizablePanelGroupProps = GroupProps;
 
 export type ResizablePanelProps = PanelProps;
