@@ -85,6 +85,7 @@ export function SidebarProvider({
     const contextValue = useMemo<SidebarContextValue>(
         () => ({
             state,
+            keyboardShortcut,
             open,
             setOpen,
             isMobile,
@@ -92,7 +93,7 @@ export function SidebarProvider({
             setOpenMobile,
             toggleSidebar,
         }),
-        [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
+        [state, keyboardShortcut, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
     );
 
     return (

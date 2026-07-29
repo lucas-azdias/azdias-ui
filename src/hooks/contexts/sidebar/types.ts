@@ -2,6 +2,7 @@ import { type ComponentProps } from "react";
 
 export interface SidebarContextValue {
     state: "expanded" | "collapsed"
+    keyboardShortcut: string
     open: boolean
     setOpen: (open: boolean) => void
     openMobile: boolean
