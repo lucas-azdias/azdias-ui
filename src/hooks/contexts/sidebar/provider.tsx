@@ -9,6 +9,7 @@ import { SidebarContext } from "@azdias/ui/hooks/contexts/sidebar/context";
 import { useIsMobile } from "@azdias/ui/hooks/use-mobile";
 import { setCookie } from "@azdias/ui/lib/cookies";
 import { cn } from "@azdias/ui/lib/utils";
+import { default as hotkeys } from "hotkeys-js";
 import {
     useCallback,
     useEffect,
@@ -22,6 +23,7 @@ export function SidebarProvider({
     defaultOpen = true,
     open: openProp,
     onOpenChange: setOpenProp,
+    keyboardShortcut = SIDEBAR_KEYBOARD_SHORTCUT,
     className,
     style,
     children,
@@ -66,21 +68,15 @@ export function SidebarProvider({
 
     // Adds a keyboard shortcut to toggle the sidebar.
     useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (
-                event.key === SIDEBAR_KEYBOARD_SHORTCUT
-                && (event.metaKey || event.ctrlKey)
-            ) {
-                event.preventDefault();
-                toggleSidebar();
-            }
-        };
+        hotkeys(keyboardShortcut, (event: KeyboardEvent) => {
+            event.preventDefault();
+            toggleSidebar();
+        });
 
-        window.addEventListener("keydown", handleKeyDown);
         return () => {
-            window.removeEventListener("keydown", handleKeyDown);
+            hotkeys.unbind(keyboardShortcut);
         };
-    }, [toggleSidebar]);
+    }, [keyboardShortcut, toggleSidebar]);
 
     // We add a state so that we can do data-state="expanded" or "collapsed".
     // This makes it easier to style the sidebar with Tailwind classes.

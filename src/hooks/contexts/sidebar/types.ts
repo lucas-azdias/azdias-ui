@@ -15,4 +15,5 @@ export type SidebarProviderProps = ComponentProps<"div">
         defaultOpen?: boolean
         open?: boolean
         onOpenChange?: (open: boolean) => void
+        keyboardShortcut?: string
     };
