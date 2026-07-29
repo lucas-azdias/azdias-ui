@@ -154,7 +154,7 @@ export function Sidebar({
     );
 }
 
-export function SidebarTrigger({ className, onClick, ...props }: SidebarTriggerProps) {
+export function SidebarTrigger({ className, icon: Icon = PanelLeftIcon, onClick, ...props }: SidebarTriggerProps) {
     const { toggleSidebar } = useSidebar();
 
     return (
@@ -170,7 +170,7 @@ export function SidebarTrigger({ className, onClick, ...props }: SidebarTriggerP
             }}
             {...props}
         >
-            <PanelLeftIcon />
+            <Icon />
             <span className="sr-only">Toggle Sidebar</span>
         </Button>
     );

@@ -94,7 +94,7 @@ export function BrowserTabsList({ className, ...props }: BrowserTabsListProps) {
                         ref={draggingContainerRef}
                         className={cn(
                             "group/tabs-list flex min-w-max gap-1 justify-start items-end "
-                            + "text-muted-foreground group-data-horizontal/tabs:h-6 group-data-vertical/tabs:min-h-max "
+                            + "text-muted-foreground group-data-horizontal/tabs:h-7 group-data-vertical/tabs:min-h-max "
                             + "group-data-vertical/tabs:min-w-auto group-data-vertical/tabs:flow-col "
                             + "bg-transparent",
                             className
@@ -123,7 +123,7 @@ export function BrowserTabsList({ className, ...props }: BrowserTabsListProps) {
                     <Button
                         size="icon-xs"
                         variant="ghost"
-                        className="size-6 rounded-sm"
+                        className="size-7 rounded-sm"
                         onClick={() => { addTab(); }}
                     >
                         <Plus className="size-3.5" />

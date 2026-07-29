@@ -6,6 +6,7 @@ import { type ComponentProps } from "react";
 import type { ButtonProps } from "@azdias/ui/components/button/types";
 import type { InputProps } from "@azdias/ui/components/input/types";
 import type { SeparatorProps } from "@azdias/ui/components/separator/types";
+import type { LucideIcon } from "lucide-react";
 
 export type SidebarProps = ComponentProps<"div">
     & {
@@ -14,7 +15,10 @@ export type SidebarProps = ComponentProps<"div">
         collapsible?: "offcanvas" | "icon" | "none"
     };
 
-export type SidebarTriggerProps = ButtonProps;
+export type SidebarTriggerProps = ButtonProps
+    & {
+        icon?: LucideIcon
+    };
 
 export type SidebarRailProps = ComponentProps<"button">;
 
