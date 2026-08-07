@@ -29,27 +29,30 @@ export function BrowserTabsProvider({ defaultNewTab, activeTab, startingTabs, ch
     }, [defaultNewTab, identifyTab]);
 
     const closeTab = useCallback((id: string) => {
-        setTabs((currentTabs) => {
-            const currentIndex = currentTabs.findIndex(tab => tab.id === id);
-            const newTabs = currentTabs.filter(tab => tab.id !== id);
+        const currentIndex = tabs.findIndex(tab => tab.id === id);
+        const newTabs = tabs.filter(tab => tab.id !== id);
 
-            setActive(active); // Refresh active on closing one tab
+        setActive(active); // Refresh active on closing one tab
 
-            // If no tabs left, add a default and set it as active
-            if (newTabs.length === 0) {
-                const newTab = identifyTab(defaultNewTab);
-                setActive(newTab.id);
-                return [newTab];
-            }
+        // If no tabs left, add a default and set it as active
+        if (newTabs.length === 0) {
+            const newTab = identifyTab(defaultNewTab);
 
-            // Change active if closed tab is active tab
-            if (active === id) {
-                setActive(newTabs[currentIndex]?.id ?? newTabs[currentIndex - 1].id);
-            }
+            setTabs([newTab]);
+            setActive(newTab.id);
 
-            return newTabs;
-        });
-    }, [active, defaultNewTab, identifyTab]);
+            return;
+        }
+
+        // Change active if closed tab is active tab
+        if (active === id) {
+            const newActive = newTabs[currentIndex]?.id ?? newTabs[currentIndex - 1].id;
+
+            setActive(newActive);
+        }
+
+        setTabs(newTabs);
+    }, [tabs, active, defaultNewTab, identifyTab]);
 
     const contextValue = useMemo<BrowserTabsContextValue>(
         () => ({
