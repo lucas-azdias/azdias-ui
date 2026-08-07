@@ -29,10 +29,7 @@ export function BrowserTabsProvider({ defaultNewTab, activeTab, startingTabs, ch
     }, [defaultNewTab, identifyTab]);
 
     const closeTab = useCallback((id: string) => {
-        const currentIndex = tabs.findIndex(tab => tab.id === id);
         const newTabs = tabs.filter(tab => tab.id !== id);
-
-        setActive(active); // Refresh active on closing one tab
 
         // If no tabs left, add a default and set it as active
         if (newTabs.length === 0) {
@@ -46,6 +43,7 @@ export function BrowserTabsProvider({ defaultNewTab, activeTab, startingTabs, ch
 
         // Change active if closed tab is active tab
         if (active === id) {
+            const currentIndex = tabs.findIndex(tab => tab.id === id);
             const newActive = newTabs[currentIndex]?.id ?? newTabs[currentIndex - 1].id;
 
             setActive(newActive);

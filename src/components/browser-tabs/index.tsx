@@ -192,7 +192,11 @@ function BrowserTabsTrigger(
                     + "group-hover/tabs-trigger:opacity-50 hover:opacity-100 focus-visible:opacity-100 "
                     + "focus-visible:outline-solid flex justify-center items-center"
                 }
-                onClick={onClose}
+                onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    onClose();
+                }}
             >
                 <X className="size-3.5" />
             </Button>
