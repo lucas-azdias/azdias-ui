@@ -1,7 +1,6 @@
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 import { type LucideIcon } from "lucide-react";
-import { type ComponentProps } from "react";
-import type { TabsProps, TabsTriggerProps } from "@azdias/ui/components/tabs/types";
+import type { TabsContentProps, TabsProps, TabsTriggerProps } from "@azdias/ui/components/tabs/types";
 
 export type BrowserTabsProps = TabsProps;
 
@@ -16,4 +15,4 @@ export type BrowserTabsTriggerProps = Omit<TabsTriggerProps, "children" | "value
         onClose: () => void
     };
 
-export type BrowserTabsContentProps = Omit<ComponentProps<"div">, "children">;
+export type BrowserTabsContentProps = Omit<TabsContentProps, "children" | "value" | "key">;

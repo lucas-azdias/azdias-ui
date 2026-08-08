@@ -136,13 +136,13 @@ export function BrowserTabsContent({ ...props }: BrowserTabsContentProps) {
     const { tabs } = useBrowserTabs();
 
     return (
-        <div {...props}>
+        <>
             {tabs.map(tab => (
-                <TabsContent key={tab.id} value={tab.id}>
+                <TabsContent key={tab.id} value={tab.id} {...props}>
                     {tab.content}
                 </TabsContent>
             ))}
-        </div>
+        </>
     );
 }
 
