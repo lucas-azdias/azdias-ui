@@ -5,17 +5,17 @@
     "tsx": true,
     "tailwind": {
         "config": "",
-        "css": "src/styles/styles.tailwind.css",
+        "css": "./src/styles/styles.tailwind.css",
         "baseColor": "neutral",
         "cssVariables": true
     },
     "iconLibrary": "lucide",
     "aliases": {
         "components": "@azdias/ui/components",
-        "utils": "@azdias/ui/lib/utils",
-        "hooks": "@azdias/ui/hooks",
+        "ui": "@azdias/ui/components",
         "lib": "@azdias/ui/lib",
-        "ui": "@azdias/ui/components"
+        "hooks": "@azdias/ui/hooks",
+        "utils": "@azdias/ui/lib/utils"
     },
     "rtl": false,
     "menuColor": "default",
