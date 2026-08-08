@@ -1,7 +1,6 @@
 import { Button } from "@azdias/ui/components/button";
 import { Tabs, TabsContent, TabsTrigger } from "@azdias/ui/components/tabs";
 import { Typography } from "@azdias/ui/components/typography";
-import { BrowserTabsProvider } from "@azdias/ui/hooks/contexts/browser-tabs/provider";
 import { useBrowserTabs } from "@azdias/ui/hooks/contexts/browser-tabs/use";
 import { cn } from "@azdias/ui/lib/utils";
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
@@ -15,21 +14,20 @@ import type {
     BrowserTabsContentProps,
     BrowserTabsListProps,
     BrowserTabsProps,
-    BrowserTabsRootProps,
     BrowserTabsTriggerProps,
 } from "@azdias/ui/components/browser-tabs/types";
 
-export function BrowserTabs({ defaultNewTab, activeTab, startingTabs, children, ...props }: BrowserTabsProps) {
+export function BrowserTabs({ className, ...props }: BrowserTabsProps) {
+    const { active, setActive } = useBrowserTabs();
+
     return (
-        <BrowserTabsProvider
-            defaultNewTab={defaultNewTab}
-            activeTab={activeTab}
-            startingTabs={startingTabs}
-        >
-            <BrowserTabsRoot {...props}>
-                {children}
-            </BrowserTabsRoot>
-        </BrowserTabsProvider>
+        <Tabs
+            data-slot="browser-tabs"
+            value={active}
+            onValueChange={setActive}
+            className={cn("gap-1.5", className)}
+            {...props}
+        />
     );
 }
 
@@ -145,20 +143,6 @@ export function BrowserTabsContent({ ...props }: BrowserTabsContentProps) {
                 </TabsContent>
             ))}
         </div>
-    );
-}
-
-function BrowserTabsRoot({ className, ...props }: BrowserTabsRootProps) {
-    const { active, setActive } = useBrowserTabs();
-
-    return (
-        <Tabs
-            data-slot="browser-tabs"
-            value={active}
-            onValueChange={setActive}
-            className={cn("gap-1.5", className)}
-            {...props}
-        />
     );
 }
 
