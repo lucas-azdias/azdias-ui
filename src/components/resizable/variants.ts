@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 export const resizableHandleVariants = cva(
     "relative flex items-center justify-center ring-offset-background focus-visible:before:bg-ring "
     + "focus-visible:before:opacity-100 before:z-80 before:absolute before:bg-border "
-    + "after:absolute after:-z-1 "
+    + "after:absolute after:-z-1 outline-none "
 
     + "aria-[orientation=vertical]:after:w-px aria-[orientation=vertical]:after:inset-y-0 "
     + "aria-[orientation=vertical]:after:left-1/2 "
