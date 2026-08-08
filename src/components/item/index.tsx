@@ -48,8 +48,9 @@ export function Item(
             {
                 className: cn(
                     itemVariants({ variant, size, className }),
-                    hoverable ? "transition-colors hover:bg-muted cursor-pointer" : ""
+                    hoverable ? "hover:bg-muted cursor-pointer" : ""
                 ),
+                tabIndex: 0,
             },
             props
         ),
