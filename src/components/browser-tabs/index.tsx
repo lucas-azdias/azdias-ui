@@ -138,7 +138,7 @@ export function BrowserTabsContent({ ...props }: BrowserTabsContentProps) {
     return (
         <>
             {tabs.map(tab => (
-                <TabsContent key={tab.id} value={tab.id} {...props}>
+                <TabsContent key={tab.id} value={tab.id} keepMounted {...props}>
                     {tab.content}
                 </TabsContent>
             ))}
