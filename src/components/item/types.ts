@@ -8,7 +8,11 @@ export type ItemGroupProps = ComponentProps<"div">;
 
 export type ItemSeparatorProps = ComponentProps<typeof Separator>;
 
-export type ItemProps = useRender.ComponentProps<"div"> & VariantProps<typeof itemVariants>;
+export type ItemProps = useRender.ComponentProps<"div">
+    & VariantProps<typeof itemVariants>
+    & {
+        hoverable?: boolean
+    };
 
 export type ItemMediaProps = ComponentProps<"div"> & VariantProps<typeof itemMediaVariants>;
 

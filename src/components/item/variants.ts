@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 export const itemVariants = cva(
     "group/item flex w-full flex-wrap items-center rounded-lg border text-sm transition-colors duration-100 "
-    + "outline-none focus-visible:outline-solid [a]:transition-colors [a]:hover:bg-muted",
+    + "outline-none focus-visible:outline-solid",
     {
         variants: {
             variant: {

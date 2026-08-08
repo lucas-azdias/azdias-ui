@@ -39,12 +39,17 @@ export function ItemSeparator({ className, ...props }: ItemSeparatorProps) {
     );
 }
 
-export function Item({ className, variant = "default", size = "default", render, ...props }: ItemProps) {
+export function Item(
+    { className, variant = "default", size = "default", hoverable = false, render, ...props }: ItemProps
+) {
     return useRender({
         defaultTagName: "div",
         props: mergeProps<"div">(
             {
-                className: cn(itemVariants({ variant, size, className })),
+                className: cn(
+                    itemVariants({ variant, size, className }),
+                    hoverable ? "transition-colors hover:bg-muted cursor-pointer" : ""
+                ),
             },
             props
         ),
