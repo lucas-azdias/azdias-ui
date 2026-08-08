@@ -52,6 +52,16 @@ export function BrowserTabsProvider({ defaultNewTab, activeTab, startingTabs, ch
         setTabs(newTabs);
     }, [tabs, active, defaultNewTab, identifyTab]);
 
+    const modifyTab = useCallback((tab: BrowserTab, id?: string) => {
+        setTabs(tabs => (
+            tabs.map(t =>
+                t.id === (id ?? active)
+                    ? { ...t, ...tab }
+                    : t
+            )
+        ));
+    }, [active]);
+
     const contextValue = useMemo<BrowserTabsContextValue>(
         () => ({
             tabs,
@@ -60,8 +70,9 @@ export function BrowserTabsProvider({ defaultNewTab, activeTab, startingTabs, ch
             setActive,
             addTab,
             closeTab,
+            modifyTab,
         }),
-        [tabs, active, setTabs, setActive, addTab, closeTab]
+        [tabs, active, setTabs, setActive, addTab, closeTab, modifyTab]
     );
 
     return (

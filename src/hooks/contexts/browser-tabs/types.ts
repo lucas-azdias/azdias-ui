@@ -20,6 +20,7 @@ export interface BrowserTabsContextValue {
     setActive: (id: string) => void
     addTab: (tab?: BrowserTab) => void
     closeTab: (id: string) => void
+    modifyTab: (tab: BrowserTab, id?: string) => void
 }
 
 export interface BrowserTabsProviderProps {
